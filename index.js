@@ -18,10 +18,10 @@ function rollDice(dice) {
 
 function getDiceValues(items) {    
     let dices = [];    
-            
+    
     for (item of items) {
-        if (item.querySelector('input:last-child').checked === true) {
-            let tmp  = parseInt(item.querySelector('input:first-child').value);
+        if (item.querySelector('input:first-child').checked === true) {
+            let tmp  = parseInt(item.querySelector('input:last-of-type').value);
             if (Number.isNaN(tmp) !== true) {
                 dices.push(tmp);
             } 
