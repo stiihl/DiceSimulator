@@ -3,17 +3,18 @@ function rollDices(dices) {
     let diceValue = 0;
 
     for(dice of dices) {
-        diceValue = rollDice(dice);
-        console.log(diceValue);
-        sum = sum + diceValue;
+        diceValue = rollDice(dice);        
+        sum = sum + diceValue;        
     }
     return sum;
 }
 
 function rollDice(dice) {
     const min = Math.ceil(1);
-    const max = Math.floor(dice);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    const max = Math.floor(dice.value);
+    const diceValue = Math.floor(Math.random() * (max - min + 1)) + min;
+    document.querySelector(`#${dice.id}-result`).innerHTML = diceValue;
+    return diceValue;
 }
 
 function getDiceValues(items) {    
@@ -21,13 +22,19 @@ function getDiceValues(items) {
     
     for (item of items) {
         if (item.querySelector('input:first-child').checked === true) {
-            let tmp  = parseInt(item.querySelector('input:last-of-type').value);
-            if (Number.isNaN(tmp) !== true) {
-                dices.push(tmp);
+            let input = item.querySelector('input:last-of-type');
+            if (Number.isNaN(input.value) !== true) {
+                dices.push({id: input.id, value: input.value});
             } 
         }
     }   
     return dices; 
+}
+
+function clearResults() {
+    [...document.querySelectorAll('.item')].map(item =>{
+        item.querySelector('div').innerHTML = '';
+    });
 }
 
 // program start
@@ -35,7 +42,8 @@ console.log('Dice Simulator');
 const button = document.getElementById('roll-dice');
 const totalsum = document.getElementById('totalsum');
 
-button.addEventListener('click', function (event) {
+button.addEventListener('click', function (event) {    
+    clearResults();
     const dices = getDiceValues(document.querySelectorAll('.item'));
     
     totalsum.innerHTML = rollDices(dices); 
