@@ -1,20 +1,20 @@
 :root {
-    /* colors */
+    /* Farger */
     --document-background-color: rgb(54, 146, 221);
     --header-background-color:  rgb(95, 24, 226);
     --header-font-color: snow;
     
-    /* fonts */
+    /* fonter */
     --document-font-family: Arial, Helvetica, sans-serif;
 }
 
-/* styles */
+/* variabler */
 body {
     background-color: var(--document-background-color);
     font-family: var(--document-font-family);
     margin: 0 10% 0 10%;
 }
-
+/* Overskrift */
 h1 {
     background-color: var(--header-background-color);
     border: solid 1px;
@@ -22,7 +22,7 @@ h1 {
     text-align: center;
     color: var(--header-font-color);
 }
-
+/* Div rundt terninger og checkboxer */
 .item {
     margin: 5px 5px 5px 0;
     display: grid;
@@ -31,39 +31,37 @@ h1 {
     justify-content: center;
 
 }
-
+/* Siste item-elementet for å lage luft ned til knappen */
 .item:last-of-type {
     padding-bottom: 10px;
 
 }
-
+/* Inputfeltet for sider på terningene */
 .dice {
     border-radius: 14px;
     text-align: center;
     max-width: 140px;
 }
-
+/* Sentrering av inneholdet */
 .contents {
 text-align: center;
 
 }
+/* Knappen for å kaste terningene */
 #roll-dice {
     border-radius: 14px;
     text-align: center;
     max-width: 200px;
     position: relative;
-    left: -15px;
+    left: -7px;
     height: 62px;
     font-size: larger;
 }
-
-/* element.style {
-    font-size: xx-large;
-    margin: 20px;
+/* Divtaggen for sum */
+.output {
     position: relative;
-    left: 660px;
-    border: solid aqua 9px;
-    border-radius: 34px;
-    width: 5%;
-    text-align: center;
-} */
+    left: -2px;
+    font-size: 78px;
+    margin-top: 20px;
+    color: white; 
+}

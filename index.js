@@ -23,9 +23,14 @@ function getDiceValues(items) {
     for (item of items) {
         if (item.querySelector('input:first-child').checked === true) {
             let input = item.querySelector('input:last-of-type');
-            if (Number.isNaN(input.value) !== true) {
-                dices.push({id: input.id, value: input.value});
+            if (isNaN(input.value) !== true && input.value !== '') {
+                dices.push({id: input.id, value: input.value});            
             } 
+            
+            
+            // if (typeof parseInt(input.value) == 'number'){
+            // }
+
         }
     }   
     return dices; 
